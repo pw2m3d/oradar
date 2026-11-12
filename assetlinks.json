@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "br.com.oradar.app",
+        "sha256_cert_fingerprints": ["87:B5:58:29:D8:CE:81:55:2A:D4:E9:77:0D:2F:B3:4D:C3:C5:CA:BC:56:5C:B3:7E:07:30:E7:88:20:99:78:C6"]
+      }
+    }]
