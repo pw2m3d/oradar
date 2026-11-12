@@ -1,0 +1,11 @@
+{
+  "name": "oradar",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "description": "ORadar - painel de monitoramento da cidade ao planeta",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server.mjs"
+  }
+}

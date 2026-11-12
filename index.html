@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102c42">
+  <meta name="description" content="ORadar — seu farol de informações sobre sua cidade, país, planeta e espaço.">
+  <title>ORadar — Seu mundo sob um novo olhar</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="layout header-row">
+      <a class="brand" href="#cidade" aria-label="ORadar, início">
+        <span class="brand-symbol" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 5 47 15 32 21 17 15 32 5Z" fill="#ffbc69"/><path d="M24 20h16l7 34H17l7-34Z" fill="#e7f3f6"/><path d="M27 20h10l2 10H25l2-10Z" fill="#f1a54f"/><path d="M31 29h2v25h-2z" fill="#16405a"/><path d="M12 55h40v5H12z" fill="#e7f3f6"/><path d="M16 19 4 13M48 19l12-6M16 27 5 31M48 27l11 4" stroke="#ffbc69" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </span>
+        <span><strong>O<span class="brand-accent">Radar</span></strong><small>Seu mundo. Sob um novo olhar.</small></span>
+      </a>
+      <div class="header-actions"><span class="live-chip"><span class="dot"></span> Fontes monitoradas</span><time id="dateStamp"></time></div>
+    </div>
+    <div class="layout nav-row" role="tablist" aria-label="Nível geográfico">
+      <button type="button" class="nav-link active" role="tab" aria-label="Minha cidade" aria-selected="true" data-scope="cidade"><span class="nav-icon">⌖</span> <span class="nav-long">Minha cidade</span><span class="nav-short">Cidade</span></button>
+      <button type="button" class="nav-link" role="tab" aria-label="Meu estado / província" aria-selected="false" data-scope="estado"><span class="nav-icon">◫</span> <span class="nav-long">Meu estado / província</span><span class="nav-short">Estado</span></button>
+      <button type="button" class="nav-link" role="tab" aria-label="Meu país" aria-selected="false" data-scope="pais"><span class="nav-icon">⚑</span> <span class="nav-long">Meu país</span><span class="nav-short">País</span></button>
+      <button type="button" class="nav-link" role="tab" aria-label="Meu planeta" aria-selected="false" data-scope="planeta"><span class="nav-icon">◎</span> <span class="nav-long">Meu planeta</span><span class="nav-short">Planeta</span></button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="hero" aria-label="Resumo da região">
+      <div><div class="eyebrow" id="eyebrow">MONITORAMENTO LOCAL</div><h1 id="pageTitle">Minha cidade</h1><p class="subhead" id="pageSubtitle">Informações da sua localização, sem perder de vista o planeta.</p></div>
+      <div class="hero-actions"><button type="button" id="btnRefresh" class="btn secondary">↻ Atualizar</button><button type="button" id="btnGeo" class="btn primary">⌖ Localizar-me</button></div>
+    </section>
+    <section class="search-row" aria-label="Selecionar localização">
+      <div class="search-group"><label for="cityInput">Cidade de referência</label><div class="search-input-wrap"><input id="cityInput" autocomplete="off" placeholder="Digite uma cidade (ex.: Campinas, SP)"><button class="search-go" type="button" id="btnSearch">Buscar</button></div><div id="searchResults" class="search-results" hidden></div></div>
+      <div class="location-summary"><span>LOCALIZAÇÃO ATUAL</span><strong id="currentLocation">Selecione uma cidade</strong><small id="dataStatus" aria-live="polite">Aguardando conexão com as fontes.</small></div>
+    </section>
+    <div id="notify" class="notice" role="status" hidden></div>
+    <section id="content" aria-live="polite" aria-label="Painel de dados"><div class="loading"><span class="spinner"></span> Carregando os painéis...</div></section>
+    <footer class="footer"><span>ORadar · Versão de desenvolvimento 0.1</span><span>Protótipo não comercial. Não substitui alertas oficiais de Defesa Civil, NOAA, USGS ou serviços meteorológicos.</span></footer>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
